@@ -5,7 +5,7 @@ import os
 
 # Load the database connection string from an environment variable.
 # This is a secure way to configure the application - by not hardcoding the credentials in your source code.
-connection_string = os.environ["DB_CONNECTION_STRING"]
+connection_string = f'mysql+pymysql://{os.getenv("USERNAME")}:{os.getenv("PASSWORD")}@{os.getenv("HOST")}:{os.getenv("PORT")}/{os.getenv("DATABASE")}'
 
 # Load the name of the database table from an environment variable.
 TABLE_NAME = os.environ["TABLE_NAME"]
@@ -16,14 +16,10 @@ TABLE_NAME2 = os.environ["TABLE_NAME2"]
 # The connect_args parameter allows for additional connection arguments to be passed.
 # Here, we're configuring the engine to connect over SSL using certificate, key, and CA certificate
 # that we've loaded from environment variables.
-engine = create_engine(connection_string,
-                       connect_args={
-                         "ssl": {
-                           "ssl_ca": os.environ["CA_CERT"],
-                           "ssl_key": os.environ["CLIENT_KEY"],
-                           "ssl_cert": os.environ["CLIENT_CERT"]
-                         }
-                       })
+engine = create_engine(
+  connection_string, connect_args={"ssl": {
+    "ssl_ca": os.environ["SSL_CA"],
+  }})
 """
 @app.route('/')
 @app.route('/<int:page_num>')
