@@ -2,3 +2,4 @@ Flask
 sqlalchemy
 pymysql
 pandas
+gunicorn
