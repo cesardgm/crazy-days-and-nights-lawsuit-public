@@ -1,0 +1,20 @@
+  <div class="card">
+    <div class="card_header">
+      <img src="/static/dickbw.jpg" alt="" class="card_image">
+    </div>
+    <div class="card_body">
+      <span class="tag tag-blue">{{ post['postdate'] }}</span>
+      <h4>{{ post['posttitle'] }}</h4>
+      <p>{{ post['postbody'] }}</p>
+    </div>
+    
+    <div class="card_footer">
+      <div class="user">
+        <img src="/static/ahab.jpg" alt="" class="user_image">
+        <div class="user_info">
+          <h5>{{ post['postauthor'] }}</h5>
+          <small>{{ post['postlabels'] }}</small>
+        </div>
+      </div>
+    </div>
+  </div>

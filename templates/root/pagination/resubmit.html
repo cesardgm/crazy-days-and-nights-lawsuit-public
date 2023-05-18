@@ -1,0 +1,12 @@
+<input type="hidden" id="page_num" name="page_num" value="{{ page_num }}">
+
+<script>
+    // Get the form element
+    var form = document.querySelectorAll('.search-form');
+
+    // Add an event listener for form submissions
+    form.addEventListener("submit", function() {
+        // Reset the page number to 1
+        document.getElementById("page_num").value = 1;
+    });
+</script>

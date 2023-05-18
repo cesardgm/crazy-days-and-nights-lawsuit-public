@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include 'meta.html' %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='root/index.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='root/card.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='root/pagination.css') }}">
+  <title>Recent Posts Cards</title>
+</head>
+<body id="root">
+  {% include 'navigation_bar/navbar.html' %}
+  <div class='maincontainer'>
+      <div class="search-params">
+      Query: {{ search_query if search_query else 'None' }} AND
+      <br><br>
+      Category: {% if labels == 1 %}Blinds{% elif labels == 2 %}Reveals{% elif labels == 3 %}All{% else %}Unknown{% endif %} AND
+      <br><br>
+      Page Number: {{ page_num }}
+    </div>
+    <div class="innerContainer">
+      {% for post in posts %}
+      <div class="card-parent" style="position: relative;">
+      {% include 'root/card_format/card.html' %}
+      {% include 'root/card_format/readmore.html' %}
+      </div>
+      {% endfor %}
+    </div>
+    {% include 'root/pagination/pagination.html' %}
+    {% include 'root/pagination/resubmit.html' %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<button type="button" class="toggleButton" onclick="toggleChart();">{{"To Years" if toggle else "To Month-Years" }}</button>
+<script>
+function toggleChart() {
+    let currentToggle = "{{ toggle }}";
+    let newToggle = currentToggle === "True" ? "0" : "1";
+    let searchQuery = "{{ search_query }}";  // Get the search query from the template
+    let labels = "{{ labels }}";
+    let newUrl = window.location.pathname + "?toggle=" + newToggle + "&search_query=" + encodeURIComponent(searchQuery) + "&labels=" + labels;
+    window.location.href = newUrl;
+}
+</script>

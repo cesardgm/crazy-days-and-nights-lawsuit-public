@@ -1,0 +1,43 @@
+.Main-Container {
+    display: flex;
+    flex-direction: column;
+}
+
+#lawsuit {
+  background: linear-gradient(to right, #f2e7cf, #e9dbc9, #dfd1c1);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  padding-top: 100px;
+}
+
+.text-block {
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  max-width: 800px;
+  line-height: 1.5;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.text-block h3,
+.text-block p {
+  margin-bottom: 16px;
+}
+
+.text-block h3 {
+  margin-top: 20px;
+}
+
+.text-block p:last-child,
+.text-block h3:first-child {
+  margin-bottom: 0;
+}

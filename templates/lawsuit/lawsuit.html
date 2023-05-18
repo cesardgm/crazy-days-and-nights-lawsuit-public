@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'meta.html' %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/lawsuit/lawsuit.css') }}">
+        <title style="display:none;">Crazy Days and Nights Lawsuit</title>
+        <author style="display:none;">OpenAI's GPT-4</author>
+    </head>
+
+    <body id="lawsuit">
+    {% include 'navigation_bar/navbar.html' %}
+        <div class="Main-Container">
+            {% include 'lawsuit/01_introduction.html' %}
+            {% include 'lawsuit/02_jurisdiction.html' %}
+            {% include 'lawsuit/03_specific_allegations.html' %}
+            {% include 'lawsuit/04_truth_as_a_defense.html' %}
+            {% include 'lawsuit/05_public_figure_status.html' %}
+            {% include 'lawsuit/06_damages.html' %}
+            {% include 'lawsuit/07_anonymity.html' %}
+            {% include 'lawsuit/08_source_of_revenue.html' %}
+            {% include 'lawsuit/09_prior_legal_actions.html' %}
+            {% include 'lawsuit/10_internet_law_issues.html' %}
+            {% include 'lawsuit/11_public_opinion.html' %}
+            {% include 'lawsuit/12_conclusion.html' %}
+            {% include 'lawsuit/13_disclaimer.html' %}
+            {% include 'lawsuit/14_citations.html' %}
+        </div>
+    </body>
+</html>

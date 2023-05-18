@@ -1,0 +1,95 @@
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: clamp(20rem, calc(20rem + 2vw), 22rem);
+  overflow: hidden;
+  box-shadow: 0 .1rem 1rem rgba(0,0,0,0.1);
+  border-radius: 1em;
+  background: #fdf6e6;
+}
+
+.card_body {
+  height: 400px;
+  overflow: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tag {
+  align-self: flex-start;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1em;
+  font-size: 0.75em;
+}
+
+.tag +.tag {
+  margin-left: .5em;
+}
+
+.tag-blue {
+  background: #8b8583;
+  color: #fdf6e6;
+}
+
+.card_body h4 {
+  font-size: 1.5em;
+  text-transform: capitalize;
+  color: #3f3024;
+}
+
+.card_footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.user {
+  display: flex;
+  gap: .5rem;
+}
+
+.user_image {
+  border-radius: 50%;
+  diplay: block;
+  max-width: 20%;
+  object-fit: cover;
+}
+
+.user_info > small {
+  color: #666;
+}
+
+.card_body.expanded {
+  height: auto;
+}
+
+
+.read-more {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.read-more-button {
+  padding: 0.5rem 1rem;
+  background-color: #8b8583;
+  color: #fdf6e6;
+  font-size: 1em;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.read-more-button:hover {
+  background-color: #3f3024;
+}

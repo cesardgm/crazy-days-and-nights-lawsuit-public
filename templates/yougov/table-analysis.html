@@ -1,0 +1,38 @@
+<div class="text-block">
+    <h3>Insights</h3>
+    <h4>General Statistics</h4>
+    <p>
+        The People dataset has {{ total }} individual celebrities and public figures, but only {{ non_zero_total }}
+        have non-zero mentions in the blog.
+    </p>
+
+    <h4>Gender Distribution</h4>
+    <p>
+        Of the possible {{ total }} individuals, {{ total_female }} are female and {{ total_male }} are male.
+    </p>
+
+    <h4>Mentioned Individuals</h4>
+    <p>
+        Of the mentioned {{ non_zero_total }} individuals, {{ non_zero_female }} are female and {{ non_zero_male }} are
+        male. The {{ non_zero_total }} individuals account for {{ non_zero_total_posts }} mentions in
+        "Crazy Days and Nights". Of the {{ non_zero_total_posts }} mentions, {{ non_zero_male_posts }} correspond to
+        male figures, and the remaining {{ non_zero_female_posts }} to female figures.
+    </p>
+
+    <h4>Gender Ratios</h4>
+    <p>
+        For every female in the list of all {{ total }} individuals, there are <span id="total_ratio"></span> males.
+        <br><br>
+        For every female in the list of {{ non_zero_total }} mentioned individuals, there are
+        <span id="mentioned_ratio"></span> males.
+        <br><br>
+        For every post in the blog that corresponds to a male individual, female individuals have
+        <span id="post_ratio"></span> posts.
+    </p>
+</div>
+
+<script>
+    document.getElementById('total_ratio').innerText = ({{ total_male }} / {{ total_female }}).toFixed(2);
+    document.getElementById('mentioned_ratio').innerText = ({{ non_zero_male }} / {{ non_zero_female }}).toFixed(2);
+    document.getElementById('post_ratio').innerText = ({{ non_zero_female_posts }} / {{ non_zero_male_posts }}).toFixed(2);
+</script>

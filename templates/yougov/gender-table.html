@@ -1,0 +1,25 @@
+<div class="container-of-tables">
+    <table>
+        <caption>Table: People in "Crazy Days and Nights"</caption>
+        <thead>
+            <tr>
+                <th class="hide-on-mobile">Index</th>
+                <th>Name</th>
+                <th class="hide-on-mobile">Gender</th>
+                <th>Mentions</th>
+                <th class="hide-on-mobile">Cum. Density</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in gender_table %}
+            <tr>
+                <th class="hide-on-mobile">{{ row['index']}}</th>
+                <th>{{ row['name'] }}</th>
+                <th class="hide-on-mobile">{{ row['gender'] }}</th>
+                <th>{{ row['frequency'] }}</th>
+                <th class="hide-on-mobile">{{ row['density'] }}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

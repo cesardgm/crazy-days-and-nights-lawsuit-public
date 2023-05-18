@@ -1,0 +1,28 @@
+{% set current_path = request.path %}
+<nav class="menu">
+<ul>
+  <li><a href="{{ url_for('home_func') }}">Home</a></li>
+  <li><a href="{{ url_for('data_func') }}">Data</a></li>
+  <li><a href="{{ url_for('lawsuit_func') }}">Lawsuit</a></li>
+  <li><a href="{{ url_for('yougov_func') }}">YouGov</a></li>
+</ul>
+
+{% if current_path != url_for('lawsuit_func') and current_path != url_for('yougov_func') %}
+  <form class="search-form" method="post"
+    action="{% if current_path == '/' %}/search
+            {% elif current_path == '/data' or current_path.startswith('/data/search') %}{{ url_for('data_search_func') }}
+            {% elif current_path.startswith('/search') %}{{ url_for('search_func', page_num=page_num) }}
+            {% endif %}">
+    <input type="text" placeholder="Search..." name="search_query" value="{{ search_query }}"/>
+
+    <select name="labels" id="labels">
+      <option value="">Select category</option>
+      <option value="1">Blinds</option>
+      <option value="2">Reveals</option>
+      <option value="3">All</option>
+    </select>
+
+    <input type="submit" value='Submit'/>
+  </form>
+{% endif %}
+</nav>

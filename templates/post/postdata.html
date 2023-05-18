@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card_header">
+      <img src="/static/dickbw.jpg" alt="" classt="card_image">
+  </div>
+    
+  <div class="card_body">
+      <span class="tag tag-blue">{{ post['postdate'] }}</span>
+      <h4>{{ post['posttitle'] }}</h4>
+      <p>{{ post['postbody'] }}</p>
+  </div>
+    
+  <div class="card_footer">
+      <div class="user">
+        <div class="user_info">
+          <h5>{{ post['postauthor'] }} at {{ post['posttime'] }}</h5>
+          <small>{{ post['postlabels'] }}</small><br>
+          <small>ID: {{ post['postid'] }}</small><br>
+          <a href="{{ post['postlink'] }}"><small>{{ post['postlink'] }}</small></a><br>
+          <h5>Archive Details</h5>
+          <small>{{ post['archivedate'] }}</small><br>
+          <a href="{{ post['archivelink'] }}"><small>{{ post['archivelink'] }}</small></a><br>
+          <small>Posts in Archive: {{ post['postcount'] }}</small><br>
+          <h5>Other Data</h5>
+          <small>Has Title: {{ post['posthastitle'] }}</small><br>
+          <small>Has Body: {{ post['posthasbody'] }}</small><br>
+          <small>Has Images: {{ post['posthasimages'] }}</small><br>
+          <small>Has Videos: {{ post['posthasvideos'] }}</small><br>
+          <small>Image Count: {{ post['postimagescount'] }}</small><br>
+          <small>Video Count: {{ post['postvideoscount'] }}</small><br>
+          <small>Images: {{ post['postimagelinks'] }}</small><br>
+          <small>Videos: {{ post['postvideolinks'] }}</small><br>
+        </div>
+  </div>
+      
+</div>
+  </div>

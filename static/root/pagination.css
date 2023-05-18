@@ -1,0 +1,33 @@
+.listPage {
+  text-align: center;
+  list-style: none;
+
+  font-family: 'Quicksand', sans-serif;
+
+  position: fixed;
+  bottom: 0px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  padding: 0 1em;
+}
+
+.listPage li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+.listPage .active {
+  background-color: #000000;
+  color: white;
+}

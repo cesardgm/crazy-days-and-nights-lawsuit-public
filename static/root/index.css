@@ -1,0 +1,50 @@
+.maincontainer{
+  display: grid;
+  height: 100vh;
+
+  place-items: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.innerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  gap: 2rem;
+  margin: 2rem auto;
+}
+
+@media (min-width: 992px) {
+  .innerContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+#root {
+  background: linear-gradient(to right, #f2e7cf, #e9dbc9, #dfd1c1);
+}
+
+.search-params {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 0.5em 1em;
+  margin-top: 140px;
+  text-align: center;
+  border-radius: 0.25em;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .search-params {
+    font-size: 0.8em;
+  }
+}
