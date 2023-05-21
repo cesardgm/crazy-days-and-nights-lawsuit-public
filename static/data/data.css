@@ -17,14 +17,6 @@
     gap: 20px;
 }
 
-.bar-chart {
-    width:100%;
-    max-width:900px;
-    height:auto;
-    margin-top: 60px;
-}
-
-
 .toggleButton {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
@@ -101,7 +93,7 @@
 }
 
 #barchart {
-    height: 80vh; /* Adjust this value as needed */
+    height: 100%;
     width: 100%;
-    max-width: 900px;
 }
+

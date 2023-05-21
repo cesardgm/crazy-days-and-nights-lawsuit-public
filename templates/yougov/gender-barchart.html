@@ -1,6 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <canvas id="gender-barchart"></canvas>
+
 <script>
     // Replace the following lines with the actual lists from your data
     const row_numbers = {{ row_numbers | safe }};
@@ -21,51 +22,57 @@
     const malePortion = filteredMaleRunningRatio.map((ratio, i) => filteredDensity[i] * ratio);
     const femalePortion = filteredFemaleRunningRatio.map((ratio, i) => filteredDensity[i] * ratio);
 
-    // Get the context of the canvas element to draw the chart
-    const ctx = document.getElementById("gender-barchart").getContext("2d");
+    // Define the data object
+    const data = {
+        labels: filteredRowNumbers,
+        datasets: [
+            {
+                label: "Male Cum. Density",
+                data: malePortion,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: "rgba(0, 0, 0, 0.1)",
+                borderWidth: 1
+            },
+            {
+                label: "Female Cum. Density",
+                data: femalePortion,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: "rgba(0, 0, 0, 0.1)",
+                borderWidth: 1
+            }
+        ]
+    };
 
-    // Create the Chart.js histogram object with the filtered data
-    const histogram = new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: filteredRowNumbers,
-            datasets: [
-                {
-                    label: "Male Cum. Density",
-                    data: malePortion,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: "rgba(0, 0, 0, 0.1)",
-                    borderWidth: 1,
-                    stack: "genderRatio"
+    // Define the options object
+    const options = {
+        maintainAspectRatio: false,
+        responsive: true,
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Cumulative Number of Celebrities'
                 },
-                {
-                    label: "Female Cum. Density",
-                    data: femalePortion,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: "rgba(0, 0, 0, 0.1)",
-                    borderWidth: 1,
-                    stack: "genderRatio"
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Cumulative Number of Celebrities'
-                    }
+              stacked: true
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: 'Cumulative Density of Posts'
                 },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Cumulative Density of Posts'
-                    },
-                    beginAtZero: true,
-                    stacked: true
-                }
+                beginAtZero: true,
+                stacked: true
             }
         }
+    };
+
+    // Get the context of the canvas element to draw the chart
+    const ctx = document.getElementById("gender-barchart");
+
+    // Create the Chart.js histogram object with the filtered data and options
+    const histogram = new Chart(ctx, {
+        type: "bar",
+        data: data,
+        options: options
     });
 </script>

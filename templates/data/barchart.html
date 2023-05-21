@@ -1,39 +1,56 @@
+<canvas id="barchart" style="border: 1px red;"></canvas>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<canvas id="barchart"></canvas>
 <script>
-    var ctx = document.getElementById("barchart").getContext("2d")
-    var histogram = new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: {{ values | safe }},
-            datasets: [
-                {
-                    label: "Number of Posts",
-                    data: {{ counts | safe }},
-                    backgroundColor: "rgb(75,192,192)",
-                    borderColor: "rgb(75,192,192)",
-                    borderWidth: 1
-                }
-            ]
+  const data = {
+    labels: {{ values | safe }},
+    datasets: [{
+      label: "Number of Posts",
+      data: {{ counts | safe }},
+      backgroundColor: "rgba(255,99,132,0.2)",
+      borderColor: "rgba(255,99,132,1)",
+      borderWidth: 2,
+      hoverBackgroundColor: "rgba(255,99,132,0.4)",
+      hoverBorderColor: "rgba(255,99,132,1)"
+    }]
+  };
+
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      maintainAspectRatio: false,
+      responsive: true,
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Time'
+          },
+          grid: {
+            display: false
+          }
         },
-        options: {
-            responsive: true,
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Time'
-                    }
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Number of Posts'
-                    },
-                    beginAtZero: true
-                }
-            }
+        y: {
+          title: {
+            display: true,
+            text: 'Number of Posts'
+          },
+          beginAtZero: true,
+          ticks: {
+            stepSize: 100
+          },
+          grid: {
+            display: true,
+            color: "rgba(255,99,132,0.2)"
+          }
         }
-    });
+      }
+    }
+  };
+
+  const ctx = document.getElementById('barchart');
+  const myChart = new Chart(ctx, config);
 </script>
+<!-- https://www.chartjs.org/docs/latest/configuration/responsive.html-->
