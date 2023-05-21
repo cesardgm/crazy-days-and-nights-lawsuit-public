@@ -106,7 +106,7 @@ def data_func():
   # Retrieves the posts based on the limit, offset, and labels.
   BLINDS = load_limited_recent_posts(no_limit, no_offset, labels)
   # Creates a bar chart based on the retrieved posts and the toggle state.
-  values, counts = create_bar_chart(BLINDS, toggle)
+  values, counts, total = create_bar_chart(BLINDS, toggle)
 
   # Renders the 'data.html' template, passing the values, counts, toggle state, current path, search query, and labels to it.
   return render_template('data/data.html',
@@ -115,7 +115,8 @@ def data_func():
                          toggle=toggle,
                          current_path=request.path,
                          search_query=search_query,
-                         labels=labels)
+                         labels=labels,
+                         total=total)
 
 
 # The app route decorator maps the URL '/data/search' to the function data_search_func,
@@ -144,7 +145,7 @@ def data_search_func():
   BLINDS = load_limited_filtered_posts(search_query, no_limit, no_offset,
                                        labels)
   # Creates a bar chart based on the retrieved posts and the toggle state.
-  values, counts = create_bar_chart(BLINDS, toggle)
+  values, counts, total = create_bar_chart(BLINDS, toggle)
 
   # Renders the 'data.html' template, passing the values, counts, toggle state, current path, search query, and labels to it.
   return render_template('data/data.html',
@@ -153,7 +154,8 @@ def data_search_func():
                          toggle=toggle,
                          current_path=request.path,
                          search_query=search_query,
-                         labels=labels)
+                         labels=labels,
+                         total=total)
 
 
 # This decorator maps the URL '/lawsuit' to the function lawsuit_func.
@@ -206,4 +208,4 @@ def yougov_func():
 
 
 if __name__ == "__main__":
-  app.run(host='0.0.0.0', port=10000, debug=False)
+  app.run(host='0.0.0.0', debug=False)

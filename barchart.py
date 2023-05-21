@@ -18,9 +18,12 @@ def create_bar_chart(table, toggle):
     years = sorted(year_counts.keys())
     counts = [year_counts[year] for year in years]
 
+    # Calculate the final cumulative sum of the counts
+    cum_sum = sum(counts)
+
     # The x-values for the bar chart are the years
     values = years
-    return values, counts
+    return values, counts, cum_sum
 
   # If the toggle is True, we generate data for a monthly count bar chart
   else:
@@ -36,10 +39,13 @@ def create_bar_chart(table, toggle):
     year_months = sorted(year_month_counts.keys(),
                          key=lambda x:
                          (int(x.split('-')[1]), int(x.split('-')[0])
-                          ))  # sort by year and then by month
+                          ))  # sort by year and then by >
 
     counts = [year_month_counts[year_month] for year_month in year_months]
 
+    # Calculate the final cumulative sum of the counts
+    cum_sum = sum(counts)
+
     # The x-values for the bar chart are the year-month combinations
     values = year_months
-    return values, counts
+    return values, counts, cum_sum
