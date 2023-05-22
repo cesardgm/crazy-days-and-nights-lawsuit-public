@@ -4,26 +4,26 @@
 
 <script>
     // Replace the following lines with the actual lists from your data
-    const row_numbers = {{ row_numbers | safe }};
-    const density = {{ density | safe }};
-    const male_running_ratio = {{ male_running_ratio | safe }};
-    const female_running_ratio = {{ female_running_ratio | safe }};
+    var row_numbers = {{ row_numbers | safe }};
+    var density = {{ density | safe }};
+    var male_running_ratio = {{ male_running_ratio | safe }};
+    var female_running_ratio = {{ female_running_ratio | safe }};
 
     // Filter indices to only keep every 100th data point
-    const filteredIndices = row_numbers.map((rn, i) => (i % 100 === 0 ? i : -1)).filter(i => i !== -1);
+    var filteredIndices = row_numbers.map((rn, i) => (i % 100 === 0 ? i : -1)).filter(i => i !== -1);
 
     // Create filtered data arrays for each attribute using the filtered indices
-    const filteredRowNumbers = filteredIndices.map(i => row_numbers[i]);
-    const filteredDensity = filteredIndices.map(i => density[i]);
-    const filteredMaleRunningRatio = filteredIndices.map(i => male_running_ratio[i]);
-    const filteredFemaleRunningRatio = filteredIndices.map(i => female_running_ratio[i]);
+    var filteredRowNumbers = filteredIndices.map(i => row_numbers[i]);
+    var filteredDensity = filteredIndices.map(i => density[i]);
+    var filteredMaleRunningRatio = filteredIndices.map(i => male_running_ratio[i]);
+    var filteredFemaleRunningRatio = filteredIndices.map(i => female_running_ratio[i]);
 
     // Calculate the male and female portions of each bar
-    const malePortion = filteredMaleRunningRatio.map((ratio, i) => filteredDensity[i] * ratio);
-    const femalePortion = filteredFemaleRunningRatio.map((ratio, i) => filteredDensity[i] * ratio);
+    var malePortion = filteredMaleRunningRatio.map((ratio, i) => filteredDensity[i] * ratio);
+    var femalePortion = filteredFemaleRunningRatio.map((ratio, i) => filteredDensity[i] * ratio);
 
     // Define the data object
-    const data = {
+    var data = {
         labels: filteredRowNumbers,
         datasets: [
             {
@@ -44,7 +44,7 @@
     };
 
     // Define the options object
-    const options = {
+    var options = {
         maintainAspectRatio: false,
         responsive: true,
         scales: {
@@ -67,10 +67,10 @@
     };
 
     // Get the context of the canvas element to draw the chart
-    const ctx = document.getElementById("gender-barchart");
+    var ctx = document.getElementById("gender-barchart");
 
     // Create the Chart.js histogram object with the filtered data and options
-    const histogram = new Chart(ctx, {
+    var histogram = new Chart(ctx, {
         type: "bar",
         data: data,
         options: options

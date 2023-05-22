@@ -7,7 +7,7 @@
   <li><a href="{{ url_for('yougov_func') }}">YouGov</a></li>
 </ul>
 
-{% if current_path != url_for('lawsuit_func') and current_path != url_for('yougov_func') %}
+{% if current_path != url_for('lawsuit_func') and current_path != url_for('yougov_func') and '/post' not in current_path %}
   <form class="search-form" method="post"
     action="{% if current_path == '/' %}/search
             {% elif current_path == '/data' or current_path.startswith('/data/search') %}{{ url_for('data_search_func') }}
