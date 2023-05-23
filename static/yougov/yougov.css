@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 100%; /* Ensure that this container never exceeds the width of its parent */
+    box-sizing: border-box; /* Makes sure that padding and margin are included in element's total width */
 }
 
 #yougov {
@@ -21,6 +23,8 @@
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   max-width: 800px;
+  width: 100%; /* Make sure the text block uses full width of the container up to the max-width */
+  box-sizing: border-box;
   line-height: 1.5;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -48,38 +52,3 @@ table {
     margin-right: 20px;
     border-collapse: collapse;
     margin: 25px 0;
-    font-weight: bold;
-    border-radius: 5px 5px 0 0;
-    box-shadow: 0 0 20px rgba(0,0,0,0.30);
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-th, td {
-    padding: 10px;
-    border-bottom: 1px solid #000000;
-}
-
-tr {
-    color: #DDDDDD;
-}
-
-@media (max-width: 600px) {
-    .text-block {
-        padding: 10px;
-        font-size: 0.8em;
-    }
-
-    .hide-on-mobile {
-        display: none;
-    }
-
-    table {
-        overflow-x: auto;
-        display: block;
-    }
-}
-
-#gender-barchart {
-    height: 100%;
-    width: 100%;
-}

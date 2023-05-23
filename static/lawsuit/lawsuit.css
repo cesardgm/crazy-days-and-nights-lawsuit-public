@@ -1,6 +1,8 @@
 .Main-Container {
     display: flex;
     flex-direction: column;
+    max-width: 100%; /* Ensure that this container never exceeds the width of its parent */
+    box-sizing: border-box; /* Makes sure that padding and margin are included in element's total width */
 }
 
 #lawsuit {
@@ -20,6 +22,8 @@
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   max-width: 800px;
+  width: 100%; /* Make sure the text block uses full width of the container up to the max-width */
+  box-sizing: border-box;
   line-height: 1.5;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
