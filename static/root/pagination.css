@@ -31,3 +31,7 @@
   background-color: #000000;
   color: white;
 }
+
+li:hover {
+  background-color: #111;
+}
