@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   {% include 'meta.html' %}
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='data/data.css') }}">
@@ -8,6 +9,7 @@
 
 </head>
 <body id="data">
+
   {% include 'navigation_bar/navbar.html' %}
   <div class="Main-Container">
     <div style="position: relative; height:40vh; width:80vw; margin: auto;">
@@ -26,13 +28,14 @@
       Time Scale: {{ "Month-Years" if toggle else "Years" }}
     </div>
 
-      <div class="text-block">
-        <h3>Limited:</h3>
-        <p>
-            <a href="https://forms.gle/mtRdJQWuJazqjK2C7">Sign-up</a> to the free monthly news-letter and receive a .csv file containing all of "Crazy Days and Nights" (updated monthly, lawsuit updates, alerts to new features >
-            the site, and maybe more).
-        </p>
-    </div>
+    <div class="text-block">
+      <h3>Limited:</h3>
+      <p>
+          <a href="https://forms.gle/mtRdJQWuJazqjK2C7">Sign-up</a> to the free monthly news-letter and receive a .csv file containing all 
+          of "Crazy Days and Nights" (updated monthly, lawsuit updates, alerts to new features to the site, and maybe more).
+      </p>
+  </div>
+    
   </div>
 </body>
 </html>

@@ -2,24 +2,26 @@
   <div class="card_header">
       <img src="/static/dickbw.jpg" alt="" classt="card_image">
   </div>
-    
+
   <div class="card_body">
       <span class="tag tag-blue">{{ post['postdate'] }}</span>
       <h4>{{ post['posttitle'] }}</h4>
       <p>{{ post['postbody'] }}</p>
   </div>
-    
+
   <div class="card_footer">
       <div class="user">
         <div class="user_info">
           <h5>{{ post['postauthor'] }} at {{ post['posttime'] }}</h5>
           <small>{{ post['postlabels'] }}</small><br>
           <small>ID: {{ post['postid'] }}</small><br>
-          <a href="{{ post['postlink'] }}"><small>{{ post['postlink'] }}</small></a><br>
+          <a id="postlink" href="{{ post['postlink'] }}">{{ post['postlink'] }}</a><br>
+          <br><br>
           <h5>Archive Details</h5>
           <small>{{ post['archivedate'] }}</small><br>
-          <a href="{{ post['archivelink'] }}"><small>{{ post['archivelink'] }}</small></a><br>
+          <a id="archivelink" href="{{ post['archivelink'] }}">{{ post['archivelink'] }}</a><br>
           <small>Posts in Archive: {{ post['postcount'] }}</small><br>
+          <br><br>
           <h5>Other Data</h5>
           <small>Has Title: {{ post['posthastitle'] }}</small><br>
           <small>Has Body: {{ post['posthasbody'] }}</small><br>
@@ -31,6 +33,27 @@
           <small>Videos: {{ post['postvideolinks'] }}</small><br>
         </div>
   </div>
-      
 </div>
-  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Find all 'a' tags inside the user_info class elements
+    var links = document.querySelectorAll('.user_info a');
+
+    links.forEach(link => {
+        // Apply the formatUrl function to each href attribute
+        link.innerHTML = formatUrl(link.innerHTML);
+    });
+});
+
+function formatUrl(url) {
+    var doubleSlash = url.split('//')
+    var formatted = doubleSlash.map(str =>
+        str.replace(/(?<before>[/~.,-_?#%])/giu, '<wbr>$1')
+            .replace(/(?<beforeAndAfter>[=&])/giu, '<wbr>$1<wbr>')
+        ).join('//<wbr>');
+    formatted = formatted.replace(/:(?!\/\/)/g, ":<wbr>");
+    return formatted;
+}
+</script>
+

@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 100%; 
-    box-sizing: border-box; 
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 #yougov {
@@ -23,14 +23,13 @@
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   max-width: 800px;
-  width: 100%; 
-  box-sizing: border-box;
   line-height: 1.5;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  border-sizing: border-box;
 }
 
 .text-block h3,
@@ -52,3 +51,42 @@ table {
     margin-right: 20px;
     border-collapse: collapse;
     margin: 25px 0;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.30);
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+}
+
+tr {
+    color: #DDDDDD;
+}
+
+@media (max-width: 600px) {
+    .text-block {
+        padding: 10px;
+        font-size: 0.8em;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    table {
+        overflow-x: auto;
+        display: block;
+    }
+}
+
+#gender-barchart {
+    height: 100%;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

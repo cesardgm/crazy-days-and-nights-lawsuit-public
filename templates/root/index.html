@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   {% include 'meta.html' %}
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='root/index.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='root/card.css') }}">
@@ -8,6 +9,7 @@
   <title>Recent Posts Cards</title>
 </head>
 <body id="root">
+
   {% include 'navigation_bar/navbar.html' %}
   <div class='maincontainer'>
       <div class="search-params">
@@ -24,9 +26,12 @@
       {% include 'root/card_format/readmore.html' %}
       </div>
       {% endfor %}
-    </div>
+
+	<div style="height:60px"></div> 
+  
+  </div>
     {% include 'root/pagination/pagination.html' %}
     {% include 'root/pagination/resubmit.html' %}
-  </div>
+    </div>
 </body>
 </html>

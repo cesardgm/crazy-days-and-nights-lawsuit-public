@@ -2,7 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy import text
 import pandas as pd
 import os
-
+#from dotenv import load_dotenv
+#load_dotenv()
 # Load the database connection string from an environment variable.
 # This is a secure way to configure the application - by not hardcoding the credentials in your source code.
 connection_string = f'mysql+pymysql://{os.getenv("USERNAME")}:{os.getenv("PASSWORD")}@{os.getenv("HOST")}:{os.getenv("PORT")}/{os.getenv("DATABASE")}'
@@ -16,10 +17,7 @@ TABLE_NAME2 = os.environ["TABLE_NAME2"]
 # The connect_args parameter allows for additional connection arguments to be passed.
 # Here, we're configuring the engine to connect over SSL using certificate, key, and CA certificate
 # that we've loaded from environment variables.
-engine = create_engine(
-  connection_string, connect_args={"ssl": {
-    "ssl_ca": os.environ["SSL_CA"],
-  }})
+engine = create_engine(connection_string)
 """
 @app.route('/')
 @app.route('/<int:page_num>')
@@ -253,7 +251,7 @@ def load_limited_recent_posts(per_page, offset, labels=3):
     filter_query = "WHERE postlabels LIKE '%reveal%' "
 
   # Append the WHERE clause (if any) and the LIMIT and OFFSET clauses to the SELECT statement.
-  final_query = base_query + filter_query + f"LIMIT {per_page} OFFSET {offset}"
+  final_query = base_query + filter_query + f" ORDER BY postunixtime DESC LIMIT {per_page} OFFSET {offset}"
 
   # Connect to the database and execute the SQL query.
   with engine.connect() as conn:
@@ -300,7 +298,7 @@ def load_limited_filtered_posts(input_text, limit, offset, labels=3):
     filter_query = "AND postlabels LIKE '%reveal%' "
 
   # The final query combines the base and filter queries and adds the LIMIT and OFFSET for pagination.
-  final_query = base_query + filter_query + f"LIMIT {limit} OFFSET {offset}"
+  final_query = base_query + filter_query + f"ORDER BY postunixtime DESC LIMIT {limit} OFFSET {offset}"
 
   # Connecting to the database and executing the SQL query.
   with engine.connect() as conn:

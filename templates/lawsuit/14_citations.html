@@ -2,62 +2,61 @@
     <h3>XIV. Citations</h3>
     <h4>MLA</h4>
     <p id="mla-citation">
-        {{ citations['mla'] }}
+        {{ citations['mla'] | safe }}
     </p>
     <h4>APA</h4>
     <p id="apa-citation">
-        {{ citations['apa'] }}
+        {{ citations['apa'] | safe }}
     </p>
 </div>
-
 <script>
-  // This event listener triggers when all the content of the document has been loaded
-  document.addEventListener('DOMContentLoaded', (event) => {
-      // Find the HTML elements with id 'mla-citation' and 'apa-citation', which contain the citations
-      var mlaCitation = document.getElementById('mla-citation');
-      var apaCitation = document.getElementById('apa-citation');
-  
-      // Create a temporary div element for holding the formatted citation
-      var tempDiv = document.createElement('div');
-  
-      // Call the formatUrl function on the MLA citation to format the URLs and store the formatted citation in the temporary div
-      tempDiv.innerHTML = formatUrl(mlaCitation.innerHTML);
-      // Clear the existing content of the MLA citation
-      mlaCitation.innerHTML = '';
-      // Replace the old citation with the newly formatted citation
-      while(tempDiv.firstChild) {
-          mlaCitation.appendChild(tempDiv.firstChild);
-      }
-  
-      // Perform the same actions for the APA citation
-      tempDiv.innerHTML = formatUrl(apaCitation.innerHTML);
-      apaCitation.innerHTML = '';
-      while(tempDiv.firstChild) {
-          apaCitation.appendChild(tempDiv.firstChild);
-      }
-  });
-  
-  // This function is responsible for formatting URLs for better readability and line-breaking
-  function formatUrl(url) {
-      // Separate the URL into parts divided by '//' to handle single and double slashes differently
-      var doubleSlash = url.split('//')
-  
-      // Process each part separately
-      var formatted = doubleSlash.map(str =>
-          // Insert a word break opportunity before each specified character (/~.,-_?#%)
-          // These characters are chosen because they often denote sections of the URL, making them good points for potential line breaks.
-          str.replace(/(?<before>[/~.,-_?#%])/giu, '<wbr>$1')
-              // Insert a word break opportunity before and after each equals sign or ampersand (&=)
-              // These characters often separate parameters in a URL, making them good points for potential line breaks.
-              .replace(/(?<beforeAndAfter>[=&])/giu, '<wbr>$1<wbr>')
-          // Join the parts together with '//', inserting a word break opportunity after the double slash
-          // This is because the double slash often separates the protocol (e.g., http) from the rest of the URL.
-          ).join('//<wbr>');
-      
-      // Add <wbr> after ':' only when it is not followed by '//' as ':' usually denotes the protocol (e.g., http, https)
-      formatted = formatted.replace(/:(?!\/\/)/g, ":<wbr>");
-  
-      // Return the newly formatted URL
-      return formatted;
-  }
+// This event listener triggers when all the content of the document has been loaded
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Find the HTML elements with id 'mla-citation' and 'apa-citation', which contain the citations
+    var mlaCitation = document.getElementById('mla-citation');
+    var apaCitation = document.getElementById('apa-citation');
+
+    // Create a temporary div element for holding the formatted citation
+    var tempDiv = document.createElement('div');
+
+    // Call the formatUrl function on the MLA citation to format the URLs and store the formatted citation in the temporary div
+    tempDiv.innerHTML = formatUrl(mlaCitation.innerHTML);
+    // Clear the existing content of the MLA citation
+    mlaCitation.innerHTML = '';
+    // Replace the old citation with the newly formatted citation
+    while(tempDiv.firstChild) {
+        mlaCitation.appendChild(tempDiv.firstChild);
+    }
+
+    // Perform the same actions for the APA citation
+    tempDiv.innerHTML = formatUrl(apaCitation.innerHTML);
+    apaCitation.innerHTML = '';
+    while(tempDiv.firstChild) {
+        apaCitation.appendChild(tempDiv.firstChild);
+    }
+});
+
+// This function is responsible for formatting URLs for better readability and line-breaking
+function formatUrl(url) {
+    // Separate the URL into parts divided by '//' to handle single and double slashes differently
+    var doubleSlash = url.split('//')
+
+    // Process each part separately
+    var formatted = doubleSlash.map(str =>
+        // Insert a word break opportunity before each specified character (/~.,-_?#%)
+        // These characters are chosen because they often denote sections of the URL, making them good points for potential line breaks.
+        str.replace(/(?<before>[/~.,-_?#%])/giu, '<wbr>$1')
+            // Insert a word break opportunity before and after each equals sign or ampersand (&=)
+            // These characters often separate parameters in a URL, making them good points for potential line breaks.
+            .replace(/(?<beforeAndAfter>[=&])/giu, '<wbr>$1<wbr>')
+        // Join the parts together with '//', inserting a word break opportunity after the double slash
+        // This is because the double slash often separates the protocol (e.g., http) from the rest of the URL.
+        ).join('//<wbr>');
+    
+    // Add <wbr> after ':' only when it is not followed by '//' as ':' usually denotes the protocol (e.g., http, https)
+    formatted = formatted.replace(/:(?!\/\/)/g, ":<wbr>");
+
+    // Return the newly formatted URL
+    return formatted;
+}
 </script>

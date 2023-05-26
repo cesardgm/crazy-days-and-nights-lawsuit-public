@@ -1,8 +1,8 @@
 .Main-Container {
     display: flex;
     flex-direction: column;
-    max-width: 100%; 
-    box-sizing: border-box; 
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 #lawsuit {
@@ -22,14 +22,14 @@
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
   max-width: 800px;
-  width: 100%; 
-  box-sizing: border-box;
+  width: 100%;
   line-height: 1.5;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 .text-block h3,
