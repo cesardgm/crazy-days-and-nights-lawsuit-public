@@ -1,68 +1,31 @@
-# crazy-days-and-nights-lawsuit-public
+# Crazy Days and Nights Lawsuit
 
-Web Service that clones Crazy Days and Nights, provides numerical analysis about the blog, and provides updates on the latest lawsuits faced by the blog.
+You can view the final output of this project at [Crazy Days and Nights Lawsuit](https://www.crazydaysandnightslawsuit.net)
 
-https://www.crazydaysandnightslawsuit.net
+## Purpose
 
-![badge](hi)
-[![MIT](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+The purpose of this project is to clone the blog "Crazy Days and Nights", provide numerical analysis about the blog, and provide updates on the latest legal challenges faced by the blog.
 
-This is an example file with maximal choices selected.
+## Project Overview
 
-This is a long description.
+This project is a fully developed and comprehensive, data-driven web service app. It was built using **Flask**, **HTML**, **CSS**, **JavaScript**, and **MySQL**, focusing on a real-world lawsuit investigation. 
 
-## Table of Contents
+## Infrastructure 
 
-- [Security](#security)
-- [Background](#background)
-- [Install](#install)
-- [Usage](#usage)
-- [API](#api)
-- [Contributing](#contributing)
-- [License](#license)
+A robust data infrastructure was established with a self-hosted MySQL database and two AWS EC2 instances - one hosting the application and master database, and the other serving as a replica for increased data reliability and performance.
 
-## Security
+## Task Automation
 
-### Any optional sections
+Designed and executed a scheduled task using CRON jobs, which performs daily data scraping using Python’s Beautiful Soup and facilitates automated backup of the database via mysqldump exports and imports, enhancing data safety and integrity.
 
-## Background
+## Domain and Security
 
-### Any optional sections
+Configured AWS Route 53 for domain purchase and forwarding, and set up HTTPS for secure communication. 
 
-## Install
+## Database Integration
 
-This module depends upon a knowledge of [Markdown]().
+Integrated the database with the web application to display real-time data to users, applying best practices for data security by using a MySQL user with limited privileges. 
 
-```
-```
+## Version Control
 
-### Any optional sections
-
-## Usage
-
-```
-```
-
-Note: The `license` badge image link at the top of this file should be updated with the correct `:user` and `:repo`.
-
-### Any optional sections
-
-## API
-
-### Any optional sections
-
-## More optional sections
-
-## Contributing
-
-See [the contributing file](CONTRIBUTING.md)!
-
-PRs accepted.
-
-Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
-
-### Any optional sections
-
-## License
-
-[MIT © Richard McRichface.](../LICENSE)
+Utilized Git for effective version control throughout the project.
