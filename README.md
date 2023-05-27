@@ -4,7 +4,7 @@ Web Service that clones Crazy Days and Nights, provides numerical analysis about
 
 https://www.crazydaysandnightslawsuit.net
 
-![badge]()
+![badge](hi)
 [![MIT](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 This is an example file with maximal choices selected.
