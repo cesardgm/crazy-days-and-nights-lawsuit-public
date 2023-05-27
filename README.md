@@ -3,11 +3,8 @@
 Web Service that clones Crazy Days and Nights, provides numerical analysis about the blog, and provides updates on the latest lawsuits faced by the blog.
 
 https://www.crazydaysandnightslawsuit.net
-![banner]()
 
 ![badge]()
-![badge]()
-[![license](https://img.shields.io/github/license/:user/:repo.svg)](LICENSE)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 This is an example file with maximal choices selected.
