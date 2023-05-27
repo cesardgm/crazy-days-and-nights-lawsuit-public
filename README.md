@@ -1,6 +1,6 @@
 # crazy-days-and-nights-lawsuit-public
 
-Web Service that clones Crazy Days and Nights
+Web Service that clones Crazy Days and Nights, provides numerical analysis about the blog, and provides updates on the latest lawsuits faced by the blog.
 
 https://www.crazydaysandnightslawsuit.net
 ![banner]()
