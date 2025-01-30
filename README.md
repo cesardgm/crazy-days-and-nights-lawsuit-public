@@ -1,10 +1,14 @@
 # Crazy Days and Nights Lawsuit
 
-You can view the final output of this project at [Crazy Days and Nights Lawsuit](https://www.crazydaysandnightslawsuit.net)
+~~You can view the final output of this project at [Crazy Days and Nights Lawsuit](https://www.crazydaysandnightslawsuit.net)~~
+Project is now defunct. It was availale on "https://www.crazydaysandnightslawsuit.net" until end of 2023.
 
 ## Purpose
 
-The purpose of this project is to clone the blog "Crazy Days and Nights", provide numerical analysis about the blog, and provide updates on the latest legal challenges faced by the blog.
+The purpose of this project was to test the capabilities of GPT-3.5 Turbo. The tasks before it included the ability to
+- clone the blog "Crazy Days and Nights",
+- provide numerical analysis about the blog, and
+- provide updates on the latest legal challenges faced by the blog.
 
 ## Project Overview
 
