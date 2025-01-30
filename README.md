@@ -1,7 +1,7 @@
 # Crazy Days and Nights Lawsuit
 
 ~~You can view the final output of this project at [Crazy Days and Nights Lawsuit](https://www.crazydaysandnightslawsuit.net)~~
-Project is now defunct. It was availale on "https://www.crazydaysandnightslawsuit.net" until end of 2023.
+Project is now defunct. It was availale on "crazydaysandnightslawsuit.net" until end of 2023.
 
 ## Purpose
 
